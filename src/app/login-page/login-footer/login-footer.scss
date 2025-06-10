@@ -1,0 +1,56 @@
+:host {
+    background: #eeeeee;
+    padding: 0;
+    margin-top: 32px;
+    width: 100%;
+    align-self: stretch;
+}
+
+/* --- Footer Styles --- */
+footer {
+    background: #eeeeee;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+
+    .footer-links {
+        text-align: center;
+        padding: 16px 0 10px 0;
+        background: #eeeeee;
+        font-size: 1rem;
+
+        a {
+            color: #1f7a54;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 500;
+            transition: color 0.2s;
+
+            &:hover {
+                text-decoration: underline;
+                color: #17a97c;
+            }
+        }
+    }
+
+    .footer-text {
+        display: flex;
+        background: #e0e1e1;
+        padding: 10px 0px;
+        gap: 20px;
+        font-size: 0.95rem;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .link-divider {
+        color: #c4c4c4;
+        font-size: 1.4rem;
+    }
+
+    .footer-divider {
+        background-color: #bdbdbd;
+        height: 26px;
+        width: 2px;
+    }
+}
