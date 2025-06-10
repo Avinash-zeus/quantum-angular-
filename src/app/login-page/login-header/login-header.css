@@ -1,0 +1,12 @@
+:host {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-bgimg {
+    /* background-image: url('assets/header pattern image.png'); */
+    background-color: #222e3b;
+    padding: 14px 0 10px 20px;
+}
