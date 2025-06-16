@@ -1,6 +1,6 @@
 .login-main {
     background: #fff;
-    padding: 50px;
+    padding: 40px 50px;
     width: 540px;
     display: flex;
     flex-direction: column;
@@ -13,7 +13,7 @@
     margin-bottom: 10px;
 }
 
-.login-title {
+.login-header .login-title {
     font-size: 1.5rem;
     flex-grow: 1;
     text-align: center;
@@ -31,19 +31,21 @@
     margin-bottom: 24px;
 }
 
-.radio-label {
+.login-type .radio-label {
     position: relative;
     padding-left: 32px;
     cursor: pointer;
     font-size: 1rem;
     color: #222;
+    -webkit-user-select: none;
+    -moz-user-select: none;
     user-select: none;
     display: flex;
     align-items: center;
     min-height: 24px;
 }
 
-.radio-label input[type="radio"] {
+.login-type .radio-label input[type=radio] {
     opacity: 0;
     position: absolute;
     left: 0;
@@ -55,19 +57,19 @@
     cursor: pointer;
 }
 
-.radio-label .custom-radio {
+.login-type .radio-label .custom-radio {
     position: absolute;
     left: 0;
     top: 0;
     width: 24px;
     height: 24px;
     pointer-events: none;
-    background: url('/assets/icons/radio-button-off.svg') no-repeat center/contain;
+    background: url("/assets/icons/radio-button-off.svg") no-repeat center/contain;
     transition: background 0.2s;
 }
 
-.radio-label input[type="radio"]:checked+.custom-radio {
-    background: url('/assets/icons/radio-button-on.svg') no-repeat center/contain;
+.login-type .radio-label input[type=radio]:checked+.custom-radio {
+    background: url("/assets/icons/radio-button-on.svg") no-repeat center/contain;
 }
 
 .select-group {
@@ -84,8 +86,9 @@
 
 .select-group select {
     border: none;
-    border-bottom: 2px solid #ccc;
-    background: transparent;
+    border-bottom: 2px solid #000;
+    background-color: rgba(0, 0, 0, 0);
+    outline: none;
     font-size: 1rem;
     padding: 8px 0 6px 0;
     outline: none;
@@ -116,6 +119,11 @@
     border-bottom: 2px solid #1f7a54;
 }
 
+.floating-input-group input::-ms-reveal,
+.floating-input-group input::-ms-clear {
+    display: none;
+}
+
 .floating-input-group label {
     position: absolute;
     left: 0;
@@ -125,14 +133,36 @@
     pointer-events: none;
     background: #fff;
     padding: 0 4px;
-    transition: 0.2s cubic-bezier(.4, 0, .2, 1) all;
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1) all;
+}
+
+.floating-input-group input:not(:-moz-placeholder-shown)+label {
+    top: -12px;
+    left: -4px;
+    font-size: 0.85rem;
+    color: #1f7a54;
 }
 
 .floating-input-group input:focus+label,
 .floating-input-group input:not(:placeholder-shown)+label {
     top: -12px;
+    left: -4px;
     font-size: 0.85rem;
     color: #1f7a54;
+}
+
+.floating-input-group .toggle-password {
+    position: absolute;
+    right: 2px;
+    top: 34%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    color: #888;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 
 .forgot-link {
@@ -147,8 +177,8 @@
     text-align: right;
 }
 
-.username-link,
-.password-link {
+.forgot-link.username-link,
+.forgot-link.password-link {
     position: static;
     display: block;
     margin-top: 6px;
@@ -157,30 +187,13 @@
     right: auto;
 }
 
-.toggle-password {
-    position: absolute;
-    right: 2px;
-    top: 34%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    width: 24px;
-    height: 24px;
-    color: #888;
-    user-select: none;
-}
-
-input::-ms-reveal,
-input::-ms-clear {
-    display: none;
-}
-
 .remember-me-group {
     display: flex;
     align-items: center;
     position: relative;
 }
 
-.remember-me-group input[type="checkbox"] {
+.remember-me-group input[type=checkbox] {
     opacity: 0;
     width: 24px;
     height: 24px;
@@ -190,28 +203,25 @@ input::-ms-clear {
     cursor: pointer;
 }
 
-.remember-me-group label {
-    font-size: 1rem;
-    color: #222;
-    cursor: pointer;
-    padding-left: 0;
-}
-
 .remember-me-group .custom-checkbox {
     position: absolute;
     left: 0;
     width: 24px;
     height: 24px;
-    background: url('/assets/icons/checkbox-unchecked.svg') no-repeat center/contain;
+    background: url("/assets/icons/checkbox-unchecked.svg") no-repeat center/contain;
     pointer-events: none;
     transition: background 0.2s;
 }
 
-.remember-me-group input[type="checkbox"]:checked+.custom-checkbox {
-    background: url('/assets/icons/checkbox-checked.svg') no-repeat center/contain;
+.remember-me-group input[type=checkbox]:checked+.custom-checkbox {
+    background: url("/assets/icons/checkbox-checked.svg") no-repeat center/contain;
 }
 
 .remember-me-group label {
+    font-size: 1rem;
+    color: #222;
+    cursor: pointer;
+    padding-left: 0;
     margin-left: 5px;
 }
 
@@ -223,7 +233,7 @@ input::-ms-clear {
     padding: 12px 0;
     font-size: 1.1rem;
     font-weight: 500;
-    box-shadow: 2px 6px rgba(141, 141, 141, 0.123);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     cursor: pointer;
     transition: background 0.2s;
     margin-top: 10px;

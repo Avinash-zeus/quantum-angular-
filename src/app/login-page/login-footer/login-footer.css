@@ -6,14 +6,22 @@
     align-self: stretch;
 }
 
-.footer-links {
+/* --- Footer Styles --- */
+footer {
+    background: #eeeeee;
+    padding: 0;
+    margin-top: 32px;
+    width: 100%;
+}
+
+footer .footer-links {
     text-align: center;
     padding: 16px 0 10px 0;
     background: #eeeeee;
     font-size: 1rem;
 }
 
-.footer-links a {
+footer .footer-links a {
     color: #1f7a54;
     text-decoration: none;
     margin: 0 8px;
@@ -21,12 +29,12 @@
     transition: color 0.2s;
 }
 
-.footer-links a:hover {
+footer .footer-links a:hover {
     text-decoration: underline;
     color: #17a97c;
 }
 
-.footer-text {
+footer .footer-text {
     display: flex;
     background: #e0e1e1;
     padding: 10px 0px;
@@ -36,12 +44,12 @@
     align-items: center;
 }
 
-.link-divider {
+footer .link-divider {
     color: #c4c4c4;
     font-size: 1.4rem;
 }
 
-.footer-divider {
+footer .footer-divider {
     background-color: #bdbdbd;
     height: 26px;
     width: 2px;
