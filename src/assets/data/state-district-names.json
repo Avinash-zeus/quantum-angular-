@@ -1,0 +1,30 @@
+{
+    "Alabama": [
+        "Autauga",
+        "Baldwin",
+        "Barbour",
+        "Bibb",
+        "Blount"
+    ],
+    "Alaska": [
+        "Aleutians East",
+        "Anchorage",
+        "Bristol Bay",
+        "Denali",
+        "Fairbanks North Star"
+    ],
+    "Arizona": [
+        "Apache",
+        "Cochise",
+        "Coconino",
+        "Gila",
+        "Graham"
+    ],
+    "Arkansas": [
+        "Arkansas",
+        "Ashley",
+        "Baxter",
+        "Benton",
+        "Boone"
+    ]
+}

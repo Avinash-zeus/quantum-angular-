@@ -18,44 +18,47 @@
             </label>
         </div>
 
-        <form class="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
             <div class="select-group">
                 <label for="state">State*</label>
-                <select id="state" required>
-                    <option>Alabama</option>
-                    <option>Alaska</option>
-                    <option>Arizona</option>
+                <select id="state" formControlName="state" required (change)="onStateChange()">
+                    <option value="" disabled selected>Select a State</option>
+                    <option *ngFor="let state of states" [value]="state">{{ state }}</option>
                 </select>
             </div>
+
             <div class="select-group">
                 <label for="district">District*</label>
-                <select id="district" required>
-                    <option>Alabama School District</option>
-                    <option>Other District</option>
+                <select id="district" formControlName="district" required>
+                    <option value="" disabled selected>Select a District</option>
+                    <option *ngFor="let district of districts">{{ district }}</option>
                 </select>
             </div>
 
             <div class="floating-input-group">
-                <input type="text" id="username" required autocomplete="off" placeholder=" " />
+                <input type="text" id="username" formControlName="username" required autocomplete="off"
+                    placeholder=" " />
                 <label for="username">Username/Email ID*</label>
                 <a href="#" class="forgot-link username-link">FORGOT USERNAME?</a>
             </div>
 
             <div class="floating-input-group">
-                <input type="password" id="password" required autocomplete="off" placeholder=" " />
+                <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password" required
+                    autocomplete="off" placeholder=" " />
                 <label for="password">Password*</label>
-                <img id="togglePasswordIcon" src="assets/icons/preview.svg" alt="Show Password"
-                    class="toggle-password" />
+                <img id="togglePasswordIcon" [src]="showPassword ? 'assets/icons/hide.svg' : 'assets/icons/preview.svg'"
+                    alt="Show Password" class="toggle-password" (click)="togglePasswordVisibility()" />
                 <a href="#" class="forgot-link password-link">FORGOT PASSWORD?</a>
             </div>
 
             <div class="remember-me-group">
-                <input type="checkbox" id="remember" checked />
+                <input type="checkbox" id="remember" formControlName="remember" />
                 <span class="custom-checkbox"></span>
                 <label for="remember">Remember Me</label>
             </div>
 
             <button type="submit" class="login-btn">LOG IN</button>
         </form>
+
     </main>
 </div>
