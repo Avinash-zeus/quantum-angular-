@@ -1,0 +1,90 @@
+<main>
+    <div class="stats-banner">
+        <div class="stat active">
+            <img src="assets\icons\courses.svg" alt="Courses">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Courses</span>
+        </div>
+        <div class="stat">
+            <img src="assets\icons\classes.svg" alt="Courses">
+            <span class="stat-number">4</span>
+            <span class="stat-label">Classes</span>
+        </div>
+    </div>
+
+    <div class="courses-header">
+        <span style="font-size: 1rem;">Showing 4 of 4 courses</span>
+        <div class="sort">
+            <label>Sort By:</label>
+            <select>
+                <option>Course Name</option>
+            </select>
+            <img src="assets\icons\sort.svg" height="24px">
+        </div>
+    </div>
+
+    <div style="height: 1px; background-color: #696969; width: 97%; margin: 0 auto;"></div>
+
+    <div class="courses-grid" id="coursesGrid">
+        <!-- Course Cards will be generated here -->
+        <div *ngFor="let course of courses" class="course-card">
+
+            <span *ngIf="course.expired" class="expired">EXPIRED</span>
+
+            <div class="course-content">
+                <img [src]="course.image" [alt]="course.title" />
+
+                <div class="course-info">
+                    <div class="course-title">
+                        <h3>{{ course.title }}</h3>
+                        <img [src]="course.favourite ? 'assets/icons/favourite.svg' : 'assets/icons/not favourite.svg'"
+                            alt="" />
+                    </div>
+
+                    <div class="course-meta">
+                        <span>
+                            {{ course.subject || '' }}
+                            <span class="divider">|</span>
+                            {{ course.grade || '' }}
+                        </span>
+                        <span class="course-grade">{{ course.gradePlus || '' }}</span>
+                    </div>
+
+                    <div class="course-details">
+                        <span *ngIf="course.units"><b>{{ course.units }}</b> Units</span>
+                        <span *ngIf="course.lessons"><b>{{ course.lessons }}</b> Lessons</span>
+                        <span *ngIf="course.topics"><b>{{ course.topics }}</b> Topics</span>
+                    </div>
+
+                    <select [ngStyle]="{ color: isCourseClassEmpty(course) ? 'gray' : 'inherit' }">
+                        <option *ngIf="isCourseClassEmpty(course)" value="" selected>No Classes</option>
+                        <option *ngFor="let cls of course.class">{{ cls }}</option>
+                    </select>
+
+                    <div class="class-info">
+                        <span *ngIf="course.students">{{ course.students }} Students</span>
+                        <span *ngIf="course.students && course.date" class="divider">|</span>
+                        <span *ngIf="course.date">{{ course.date }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div style="height: 1px; width: 100%; background-color: #696969;"></div>
+
+            <div class="course-action">
+                <img src="assets/icons/preview.svg" [style.opacity]="getOpacity(course.canPreview)"
+                    [style.cursor]="getCursor(course.canPreview)" />
+
+                <img src="assets/icons/manage course.svg" [style.opacity]="getOpacity(course.canManage)"
+                    [style.cursor]="getCursor(course.canManage)" />
+
+                <img src="assets/icons/grade submissions.svg" [style.opacity]="getOpacity(course.canGrade)"
+                    [style.cursor]="getCursor(course.canGrade)" />
+
+                <img src="assets/icons/reports.svg" [style.opacity]="getOpacity(course.canReport)"
+                    [style.cursor]="getCursor(course.canReport)" />
+            </div>
+        </div>
+    </div>
+
+</main>

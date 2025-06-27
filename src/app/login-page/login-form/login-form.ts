@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { catchError, of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -18,8 +19,9 @@ export class LoginForm implements OnInit {
   stateDistrictData: Record<string, string[]> = {};
   showPassword = false;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) {
     this.loginForm = this.fb.group({
+      loginType: ['District', Validators.required],
       state: ['', Validators.required],
       district: ['', Validators.required],
       username: ['', Validators.required],
@@ -62,5 +64,6 @@ export class LoginForm implements OnInit {
     }
 
     console.log('Login Form Data:', this.loginForm.value);
+    this.router.navigate(['dashboard']);
   }
 }

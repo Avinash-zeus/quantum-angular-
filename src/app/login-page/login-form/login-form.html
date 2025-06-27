@@ -5,20 +5,21 @@
             <img src="assets\icons\back.svg" alt="back" />
             <h2 class="login-title">Log in with Quantum</h2>
         </div>
-        <div class="login-type">
-            <label class="radio-label">
-                <input type="radio" name="loginType" checked>
-                <span class="custom-radio"></span>
-                District
-            </label>
-            <label class="radio-label">
-                <input type="radio" name="loginType">
-                <span class="custom-radio"></span>
-                Independent school
-            </label>
-        </div>
 
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+            <div class="login-type">
+                <label class="radio-label">
+                    <input type="radio" name="loginType" value="District" formControlName="loginType">
+                    <span class="custom-radio"></span>
+                    District
+                </label>
+                <label class="radio-label">
+                    <input type="radio" name="loginType" value="Independent school" formControlName="loginType">
+                    <span class="custom-radio"></span>
+                    Independent school
+                </label>
+            </div>
+
             <div class="select-group">
                 <label for="state">State*</label>
                 <select id="state" formControlName="state" required (change)="onStateChange()">
