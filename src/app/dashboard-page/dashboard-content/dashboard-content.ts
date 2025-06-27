@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 interface Course {
   expired?: boolean;
@@ -24,17 +24,23 @@ interface Course {
 
 @Component({
   selector: 'app-dashboard-content',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './dashboard-content.html',
   styleUrl: './dashboard-content.scss'
 })
-export class DashboardContent {
+export class DashboardContent implements OnInit {
   courses: Course[] = [];
+  activeStat = 'courses';
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.http.get<Course[]>('assets/data/courses.json').subscribe(data => this.courses = data);
+  }
+
+  setActiveStat(stat: string): void {
+    this.activeStat = stat;
   }
 
   isCourseClassEmpty(course: Course): boolean {

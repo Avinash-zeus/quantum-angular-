@@ -5,6 +5,7 @@ import { DashboardContent } from './dashboard-content/dashboard-content';
 
 @Component({
   selector: 'app-dashboard-page',
+  standalone: true,
   imports: [DashboardHeader, DashboardContent, LoginFooter],
   templateUrl: './dashboard-page.html',
   styleUrl: './dashboard-page.css'

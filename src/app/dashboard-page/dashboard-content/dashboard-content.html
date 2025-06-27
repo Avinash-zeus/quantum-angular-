@@ -1,11 +1,11 @@
 <main>
     <div class="stats-banner">
-        <div class="stat active">
+        <div class="stat active" [class.active]="activeStat === 'courses'" (click)="setActiveStat('courses')">
             <img src="assets\icons\courses.svg" alt="Courses">
             <span class="stat-number">4</span>
             <span class="stat-label">Courses</span>
         </div>
-        <div class="stat">
+        <div class="stat" [class.active]="activeStat === 'classes'" (click)="setActiveStat('classes')">
             <img src="assets\icons\classes.svg" alt="Courses">
             <span class="stat-number">4</span>
             <span class="stat-label">Classes</span>
