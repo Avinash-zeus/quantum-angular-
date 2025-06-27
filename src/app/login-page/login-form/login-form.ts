@@ -51,7 +51,6 @@ export class LoginForm implements OnInit {
     this.loginForm.get('district')?.setValue('');
   }
 
-
   togglePasswordVisibility(): void {
     this.showPassword = !this.showPassword;
   }

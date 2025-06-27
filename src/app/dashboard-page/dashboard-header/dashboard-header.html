@@ -6,11 +6,12 @@
 
             <div class="nav-right">
                 <div class="nav-items">
-                    <a href="#" class="active">DASHBOARD</a>
-                    <a href="#">CONTENT</a>
-                    <a href="#">USERS</a>
-                    <a href="#">REPORTS</a>
-                    <a href="#">ADMIN</a>
+                    <a routerLink="/dashboard" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact: true}">DASHBOARD</a>
+                    <a routerLink="/dashboard/content" routerLinkActive="active">CONTENT</a>
+                    <a routerLink="/dashboard/users" routerLinkActive="active">USERS</a>
+                    <a routerLink="/dashboard/reports" routerLinkActive="active">REPORTS</a>
+                    <a routerLink="/dashboard/admin" routerLinkActive="active">ADMIN</a>
                 </div>
                 <div class="notification">
                     <div class="notification-icon">
@@ -20,6 +21,23 @@
                     <div class="notification-dropdown">
                         <ul id="notification-list">
                             <!-- Notifications will be injected here by JS -->
+
+                            <li *ngFor="let item of notifications"
+                                [style.backgroundColor]="item.status === 'unread' ? '#FFFFEE' : 'white'">
+                                <div class="notification-title">
+                                    {{ item.title }}
+                                    <img [src]="item.status === 'read' ? 'assets/icons/read.svg' : 'assets/icons/unread.svg'"
+                                        width="20px" style="margin-left:auto;" />
+                                </div>
+                                <div class="notification-metadata">
+                                    <div *ngIf="item.course"><span style="color:#6E6E6E;">Course:</span> {{ item.course
+                                        }}</div>
+                                    <div *ngIf="item.class"><span style="color:#6E6E6E;">Class:</span> {{ item.class }}
+                                    </div>
+                                    <div class="notification-date">{{ item.date }}</div>
+                                </div>
+                            </li>
+
                         </ul>
                         <div class="dropdown-actions">
                             <button>SHOW ALL</button>
@@ -34,6 +52,25 @@
                     <div class="announcement-dropdown">
                         <ul id="announcement-list">
                             <!-- Announcements will be injected here by JS -->
+
+                            <li *ngFor="let item of announcements"
+                                [style.backgroundColor]="item.status === 'unread' ? '#FFFFEE' : 'white'">
+                                <div class="announcement-author">
+                                    <span style="color:gray;">PA:&nbsp;</span>{{ item.author }}
+                                    <img [src]="item.status === 'read' ? 'assets/icons/read.svg' : 'assets/icons/unread.svg'"
+                                        width="20px" style="margin-left:auto;" />
+                                </div>
+                                <div class="announcement-message">{{ item.message }}</div>
+                                <div *ngIf="item.course" class="announcement-course">Course: {{ item.course }}</div>
+                                <div class="announcement-attachment-date">
+                                    <div *ngIf="item.attachments" class="announcement-attachment">
+                                        <img src="assets/icons/paperclip.svg" width="16px" />
+                                        {{ item.attachments }} files are attached
+                                    </div>
+                                    <div style="margin-left:auto;">{{ item.date }}</div>
+                                </div>
+                            </li>
+
                         </ul>
                         <div class="dropdown-actions">
                             <button>SHOW ALL</button>

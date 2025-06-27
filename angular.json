@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "quantum": {
+    "Quantum-Angular2": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -14,6 +14,9 @@
           "builder": "@angular/build:application",
           "options": {
             "browser": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
@@ -24,12 +27,7 @@
             ],
             "styles": [
               "src/styles.css"
-            ],
-            "server": "src/main.server.ts",
-            "outputMode": "server",
-            "ssr": {
-              "entry": "src/server.ts"
-            }
+            ]
           },
           "configurations": {
             "production": {
@@ -59,10 +57,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "quantum:build:production"
+              "buildTarget": "Quantum-Angular2:build:production"
             },
             "development": {
-              "buildTarget": "quantum:build:development"
+              "buildTarget": "Quantum-Angular2:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,6 +71,10 @@
         "test": {
           "builder": "@angular/build:karma",
           "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
             "tsConfig": "tsconfig.spec.json",
             "assets": [
               {
@@ -89,6 +91,6 @@
     }
   },
   "cli": {
-    "analytics": "2b84c44d-d038-4a51-82d0-d68f7c9feccf"
+    "analytics": false
   }
 }
