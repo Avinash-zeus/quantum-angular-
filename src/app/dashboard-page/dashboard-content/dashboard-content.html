@@ -13,7 +13,7 @@
     </div>
 
     <div class="courses-header">
-        <span style="font-size: 1rem;">Showing 4 of 4 courses</span>
+        <span>Showing 4 of 4 courses</span>
         <div class="sort">
             <label>Sort By:</label>
             <select>
@@ -36,7 +36,7 @@
 
                 <div class="course-info">
                     <div class="course-title">
-                        <h3>{{ course.title }}</h3>
+                        {{ course.title }}
                         <img [src]="course.favourite ? 'assets/icons/favourite.svg' : 'assets/icons/not favourite.svg'"
                             alt="" />
                     </div>
@@ -73,16 +73,16 @@
 
             <div class="course-action">
                 <img src="assets/icons/preview.svg" [style.opacity]="getOpacity(course.canPreview)"
-                    [style.cursor]="getCursor(course.canPreview)" />
+                    [style.cursor]="getCursor(course.canPreview)" style="width: 22px;" />
 
                 <img src="assets/icons/manage course.svg" [style.opacity]="getOpacity(course.canManage)"
-                    [style.cursor]="getCursor(course.canManage)" />
+                    [style.cursor]="getCursor(course.canManage)" style="width: 18px;" />
 
                 <img src="assets/icons/grade submissions.svg" [style.opacity]="getOpacity(course.canGrade)"
-                    [style.cursor]="getCursor(course.canGrade)" />
+                    [style.cursor]="getCursor(course.canGrade)" style="width: 18px;" />
 
                 <img src="assets/icons/reports.svg" [style.opacity]="getOpacity(course.canReport)"
-                    [style.cursor]="getCursor(course.canReport)" />
+                    [style.cursor]="getCursor(course.canReport)" style="width: 18px;" />
             </div>
         </div>
     </div>

@@ -1,4 +1,4 @@
-@media (max-width: 1040px) {
+@media (max-width: 1024px) {
     .nav-items {
         display: none !important;
     }
@@ -37,7 +37,7 @@
     width: 340px;
     background-color: white;
     position: absolute;
-    top: 89%;
+    top: 84%;
     right: 17%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -117,7 +117,7 @@
     width: 400px;
     background-color: white;
     position: absolute;
-    top: 89%;
+    top: 84%;
     right: 7%;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -206,6 +206,12 @@
 
 .announcement,
 .notification {
+
+    .notification-icon img,
+    .announcement-icon img {
+        width: 20px;
+    }
+
     &:hover {
 
         .notification-icon img,
@@ -228,7 +234,7 @@
     width: 280px;
     background-color: white;
     position: absolute;
-    top: 89%;
+    top: 84%;
     right: 0.4em;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
     opacity: 0;
@@ -350,8 +356,8 @@ nav {
         a {
             color: #1fd398;
             text-decoration: none;
-            font-size: 1.1rem;
-            padding: 22px 0;
+            font-size: 14px;
+            padding: 18px 0;
             border-top: 4px solid rgba(255, 255, 255, 0);
             border-bottom: 4px solid rgba(255, 255, 255, 0);
 

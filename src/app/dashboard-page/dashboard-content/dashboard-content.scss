@@ -26,12 +26,12 @@ main {
         }
 
         .stat-number {
-            font-size: 2rem;
+            font-size: 24px;
             font-weight: bold;
         }
 
         .stat-label {
-            font-size: 1.7rem;
+            font-size: 16px;
         }
     }
 }
@@ -51,7 +51,6 @@ main {
         label {
             display: inline-block;
             white-space: nowrap;
-            font-size: 1rem;
         }
 
         select {
@@ -60,10 +59,11 @@ main {
             background-color: #00000000;
             outline: none;
             width: fit-content;
-            font-size: 1.4rem;
+            font-size: 16px;
         }
 
         img {
+            width: 12px;
             cursor: pointer;
         }
     }
@@ -71,29 +71,31 @@ main {
 
 .courses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(476px, 571px));
     gap: 2rem;
     margin: 2rem auto;
-    align-items: stretch;
+    width: fit-content;
+    justify-content: center;
+    max-width: calc(2 * 571px + 2rem);
 
     .course-card {
         background-color: white;
-        padding: 24px;
+        padding: 30px;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
-        height: 100%;
-        min-height: 350px;
+        min-height: 246px;
+        position: relative;
 
         .expired {
             background-color: #FFE4E6;
-            padding: 4px 6px;
-            font-size: 12px;
+            padding: 4px;
+            font-size: 10px;
             color: #D80000;
             width: fit-content;
-            position: relative;
-            top: -24px;
-            left: -24px;
+            position: absolute;
+            top: 0;
+            left: 0;
             z-index: 5;
         }
 
@@ -112,11 +114,20 @@ main {
             display: flex;
             justify-content: space-between;
             margin: 8px 0;
+            text-align: left;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0px;
+            color: #222222;
+            opacity: 1;
+
+            img {
+                width: 20px;
+            }
         }
 
         img {
-            height: 100%;
-            max-height: 250px;
+            width: 132px;
         }
 
         .course-info {
@@ -128,12 +139,13 @@ main {
             display: flex;
             color: #666;
             align-items: center;
+            font-size: 12px;
         }
 
         .course-grade {
             color: #1F7A54;
-            margin-left: 6px;
-            margin-top: 2px;
+            margin-left: 4px;
+            margin-top: 6px;
         }
 
         .course-details {
@@ -141,6 +153,7 @@ main {
             gap: 1rem;
             margin: 0.5rem 0;
             color: #666;
+            font-size: 12px;
         }
 
         select {
@@ -149,13 +162,13 @@ main {
             border-bottom: 2px solid #000;
             outline: none;
             padding: 5px 0;
-            font-size: 1.3rem;
+            font-size: 16px;
         }
 
         .class-info {
             gap: 0.5rem;
             color: #666;
-            font-size: 0.9rem;
+            font-size: 12px;
             display: flex;
             align-items: center;
             margin-top: 10px;
@@ -167,6 +180,10 @@ main {
             align-items: center;
             margin-top: 1rem;
             padding: 0 1rem;
+
+            img {
+                width: 22px;
+            }
         }
     }
 }
